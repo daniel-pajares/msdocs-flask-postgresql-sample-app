@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Restaurant List{% endblock %}
+{% block title %}Procesamiento de imagenes{% endblock %}
 {% block head %}
     {{ super() }}
     <style>
@@ -41,32 +41,26 @@
   </style>
 {% endblock %}
 {% block content %}
-      <h1>Restaurants</h1>
+      <h1>Imagenes procesadas</h1>
 
-      {% if True %}
+      {% if images %}
           <table class="table">
               <thead>
                   <tr>
-                      <th>Name</th>
-                      <th>Rating</th>
-                      <th class="text-end">Details</th>
+                      <th>Nombre</th>
+                      <th class="text-end">Datos</th>
                   </tr>
               </thead>
               <tbody>
-                  {% for restaurant in restaurants %}
+                  {% for image in images %}
                       <tr>
-                          <td>{{ restaurant.name }}</td>
-                          <td>{% include "star_rating.html" %}</td>
-                          <td class="text-end"><a href="{{ url_for('details', id=restaurant.id) }}" class="btn btn-sm btn-primary">Details</a></td>
+                          <td>{{ image.name }}</td>
+                          <td class="text-end"><a href="{{ url_for('details', id=image.id) }}" class="btn btn-sm btn-primary">Datos</a></td>
                       </tr>
                   {% endfor %}
               </tbody>
           </table>
       {% else %}
-          <p>No restaurants exist.  Select Add new restaurant to add one.</p>
+        <p> No hay imagenes procesadas aun.</p>
       {% endif %}
-
-      <div class="d-flex justify-content-end">
-              <a href="{{ url_for('create_restaurant') }}" class="btn btn-success px-4 gap-3">Add new restaurant</a>
-      </div>
 {% endblock %}
