@@ -28,6 +28,8 @@
         <ul class="mb-0">
             {% for fase in image.fases %}
                 <li>{{ fase }}</li>
+            {% else %}
+                <li class="text-muted">Sin fases aplicadas</li>
             {% endfor %}
         </ul>
     </div>                
@@ -49,6 +51,8 @@
                         <td>{{ color }}</td>
                         <td>{{ count }}</td>
                     </tr>
+                {% else %}
+                    <tr><td colspan="2" class="text-muted">Sin información de píxeles</td></tr>
                 {% endfor %}
             </tbody>
         </table>
